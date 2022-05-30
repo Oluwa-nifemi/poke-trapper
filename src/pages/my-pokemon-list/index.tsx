@@ -1,10 +1,15 @@
 import React from 'react';
-import {useAppSelector} from "../../redux/hooks";
-import {getCaughtPokemon} from "../../redux/my-pokemon.slice";
+import {useAppDispatch, useAppSelector} from "../../redux/hooks";
+import {getCaughtPokemon, releasePokemon} from "../../redux/my-pokemon.slice";
 import {CaughtPokemon} from "types/pokemon";
 
 const MyPokemonList = () => {
     const myPokemon = useAppSelector(getCaughtPokemon);
+    const dispatch = useAppDispatch();
+
+    const handleReleasePokemon = (pokemonId: string, pokemonName: string) => () => {
+        dispatch(releasePokemon({pokemonId, pokemonName}));
+    }
 
   return (
     <div>
@@ -19,7 +24,7 @@ const MyPokemonList = () => {
                   {pokemon.name}
               </p>
               <img src={pokemon.sprites.front_default} alt={pokemon.name}/>
-              <button>
+              <button onClick={handleReleasePokemon(pokemon.id, pokemon.name)}>
                   Release
               </button>
           </li>

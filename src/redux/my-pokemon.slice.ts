@@ -17,6 +17,13 @@ const initialState: MyPokemonState = {
     stats: {},
 }
 
+const saveStateToLocalStorage = (state: MyPokemonState) => {
+    const { caughtPokemon, stats } = current(state);
+
+    localforage.setItem("caughtPokemon", caughtPokemon);
+    localforage.setItem("stats", stats);
+}
+
 const myPokemonSlice = createSlice({
     name: "myPokemon",
     initialState,
@@ -35,15 +42,21 @@ const myPokemonSlice = createSlice({
                 state.stats[name] = 1
             }
 
-            const { caughtPokemon, stats } = current(state);
-
-            localforage.setItem("caughtPokemon", caughtPokemon);
-            localforage.setItem("stats", stats);
+            saveStateToLocalStorage(state)
         },
+        releasePokemon: (state, action: PayloadAction<{ pokemonId: string, pokemonName: string }>) => {
+            const {pokemonId, pokemonName} = action.payload;
+
+            state.stats[pokemonName] -= 1;
+
+            state.caughtPokemon = state.caughtPokemon.filter(pokemon => pokemon.id !== pokemonId);
+
+            saveStateToLocalStorage(state)
+        }
     }
 })
 
-export const { setInitialState, catchPokemon } = myPokemonSlice.actions
+export const { setInitialState, catchPokemon, releasePokemon } = myPokemonSlice.actions
 
 export const getCaughtPokemon = (state: RootState) => state.myPokemon.caughtPokemon;
 
