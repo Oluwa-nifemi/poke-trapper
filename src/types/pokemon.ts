@@ -1,18 +1,18 @@
-type PokemonMove = {
+interface PokemonMove {
     move: {
         name: string;
         url: string;
     }
 }
 
-type PokemonType = {
+interface PokemonType {
     type: {
         name: string;
         url: string;
     }
 }
 
-export type Pokemon = {
+export interface Pokemon {
     name: string;
     moves?: Array<PokemonMove>;
     types?: Array<PokemonType>;
