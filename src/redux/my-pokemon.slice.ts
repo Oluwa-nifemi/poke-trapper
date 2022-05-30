@@ -1,6 +1,7 @@
 import {CaughtPokemon} from "types/pokemon";
 import {createSlice, current, PayloadAction} from "@reduxjs/toolkit";
 import localforage from "localforage";
+import {RootState} from "./store";
 
 export interface PokemonStats {
     [key: string]: number;
@@ -43,5 +44,7 @@ const myPokemonSlice = createSlice({
 })
 
 export const { setInitialState, catchPokemon } = myPokemonSlice.actions
+
+export const getCaughtPokemon = (state: RootState) => state.myPokemon.caughtPokemon;
 
 export default myPokemonSlice
