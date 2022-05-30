@@ -25,7 +25,9 @@ export interface PokemonWithDetails extends BasePokemon {
     };
 }
 
-export interface CaughtPokemon extends BasePokemon {
+export interface CaughtPokemon {
+    id: string;
+    name: string;
     sprites: {
         front_default: string;
     };

@@ -3,6 +3,7 @@ import {useGetPokemonByNameQuery} from "api/pokemon";
 import {useParams} from "react-router-dom";
 import {useAppDispatch} from "../../redux/hooks";
 import {catchPokemon} from "../../redux/my-pokemon.slice";
+import {nanoid} from "nanoid";
 
 const PokemonDetails = () => {
     const { name } = useParams();
@@ -20,11 +21,11 @@ const PokemonDetails = () => {
 
             if(data){
                 dispatch(catchPokemon({
+                    id: nanoid(),
                     name: data.name,
                     sprites: {
                         front_default: data.sprites.front_default
                     },
-                    url: data.url,
                     nickname
                 }))
                 alert(`${name} was successfully caught!`);
