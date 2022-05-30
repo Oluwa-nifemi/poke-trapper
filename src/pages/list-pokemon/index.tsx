@@ -1,6 +1,6 @@
 import React from 'react';
 import {useListPokemonQuery} from "api/pokemon";
-import {Pokemon} from "types/pokemon";
+import {BasePokemon} from "types/pokemon";
 import PokemonItem from "components/pokemon";
 
 const ListPokemon = () => {
@@ -17,7 +17,7 @@ const ListPokemon = () => {
             </h1>
             <section>
                 {
-                    data?.results.map((pokemon: Pokemon) => (
+                    data?.results.map((pokemon: BasePokemon) => (
                         <PokemonItem pokemon={pokemon} key={pokemon.name}/>
                     ))
                 }

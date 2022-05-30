@@ -1,9 +1,9 @@
 import React from 'react';
-import {Pokemon} from "types/pokemon";
+import {BasePokemon} from "types/pokemon";
 import {Link} from "react-router-dom";
 
 interface Props {
-  pokemon: Pokemon & { nickname?: string }
+  pokemon: BasePokemon & { nickname?: string }
 }
 
 const PokemonItem: React.FC<Props> = ({ pokemon }) => {

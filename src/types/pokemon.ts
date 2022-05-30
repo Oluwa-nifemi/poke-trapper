@@ -12,8 +12,7 @@ interface PokemonType {
     }
 }
 
-export interface Pokemon {
+export interface BasePokemon {
     name: string;
-    moves?: Array<PokemonMove>;
-    types?: Array<PokemonType>;
+    url: string;
 }
