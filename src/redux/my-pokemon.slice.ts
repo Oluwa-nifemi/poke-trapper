@@ -1,5 +1,6 @@
 import {CaughtPokemon} from "types/pokemon";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice, current, PayloadAction} from "@reduxjs/toolkit";
+import localforage from "localforage";
 
 export interface PokemonStats {
     [key: string]: number;
@@ -22,9 +23,25 @@ const myPokemonSlice = createSlice({
         setInitialState(state, action: PayloadAction<MyPokemonState>) {
             return action.payload;
         },
+        catchPokemon: (state, action: PayloadAction<CaughtPokemon>) => {
+            state.caughtPokemon.push(action.payload);
+
+            const { name } = action.payload;
+
+            if(state.stats[name]) {
+                state.stats[name] = state.stats[name] + 1
+            } else {
+                state.stats[name] = 1
+            }
+
+            const { caughtPokemon, stats } = current(state);
+
+            localforage.setItem("caughtPokemon", caughtPokemon);
+            localforage.setItem("stats", stats);
+        },
     }
 })
 
-export const { setInitialState } = myPokemonSlice.actions
+export const { setInitialState, catchPokemon } = myPokemonSlice.actions
 
 export default myPokemonSlice

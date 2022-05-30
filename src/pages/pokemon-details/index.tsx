@@ -1,11 +1,38 @@
 import React from 'react';
 import {useGetPokemonByNameQuery} from "api/pokemon";
 import {useParams} from "react-router-dom";
+import {useAppDispatch} from "../../redux/hooks";
+import {catchPokemon} from "../../redux/my-pokemon.slice";
 
 const PokemonDetails = () => {
     const { name } = useParams();
 
+    const dispatch = useAppDispatch();
+
     const { isLoading, data } = useGetPokemonByNameQuery(name as string);
+
+    const handleClickCatch = () => {
+        //Super complex algorithm to detect if the pokemon was successfully caught : )
+        const caught = Math.random() > 0.5;
+
+        if(caught){
+            const nickname = prompt("Enter your nickname") || "";
+
+            if(data){
+                dispatch(catchPokemon({
+                    name: data.name,
+                    sprites: {
+                        front_default: data.sprites.front_default
+                    },
+                    url: data.url,
+                    nickname
+                }))
+                alert(`${name} was successfully caught!`);
+            }
+        }else{
+            alert(`${name} was not caught!`);
+        }
+    }
 
     if(isLoading){
         return <div>Loading...</div>
@@ -17,7 +44,7 @@ const PokemonDetails = () => {
                 <h1>
                     {data.name}
                 </h1>
-                <button>
+                <button onClick={handleClickCatch}>
                     Catch
                 </button>
                 <img src={data.sprites.front_default} alt=""/>
