@@ -14,6 +14,6 @@ type PokemonType = {
 
 export type Pokemon = {
     name: string;
-    moves: Array<PokemonMove>;
-    types: Array<PokemonType>;
+    moves?: Array<PokemonMove>;
+    types?: Array<PokemonType>;
 }
