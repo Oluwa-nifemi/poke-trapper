@@ -24,3 +24,10 @@ export interface PokemonWithDetails extends BasePokemon {
         front_default: string;
     };
 }
+
+export interface CaughtPokemon extends BasePokemon {
+    sprites: {
+        front_default: string;
+    };
+    nickname: string;
+}
