@@ -60,4 +60,6 @@ export const { setInitialState, catchPokemon, releasePokemon } = myPokemonSlice.
 
 export const getCaughtPokemon = (state: RootState) => state.myPokemon.caughtPokemon;
 
+export const getCaughtPokemonStatistics = (state: RootState) => state.myPokemon.stats;
+
 export default myPokemonSlice
