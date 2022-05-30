@@ -3,8 +3,9 @@ import {ListPokemonResponse} from "types/list-pokemon-response";
 import {PokemonWithDetails} from "types/pokemon";
 
 export const pokemonApi = createApi({
-  reducerPath: 'pokemonApi',
-  baseQuery: fetchBaseQuery({baseUrl: process.env.REACT_APP_API_URL}),
+    reducerPath: 'pokemonApi',
+    refetchOnReconnect: true,
+    baseQuery: fetchBaseQuery({baseUrl: process.env.REACT_APP_API_URL}),
     endpoints: (builder) => ({
         listPokemon: builder.query<ListPokemonResponse, string>({
             query: () => '/pokemon'
@@ -16,4 +17,4 @@ export const pokemonApi = createApi({
 
 })
 
-export const { useListPokemonQuery, useGetPokemonByNameQuery } = pokemonApi
+export const {useListPokemonQuery, useGetPokemonByNameQuery} = pokemonApi

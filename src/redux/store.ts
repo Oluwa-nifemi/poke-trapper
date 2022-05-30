@@ -2,6 +2,7 @@ import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 import {pokemonApi} from "api/pokemon";
 import myPokemonSlice from "./my-pokemon.slice";
+import {setupListeners} from '@reduxjs/toolkit/query'
 
 export const store = configureStore({
     reducer: {
@@ -22,3 +23,5 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
+
+setupListeners(store.dispatch)
