@@ -1,11 +1,19 @@
 import React from 'react';
+import {useListPokemonQuery} from "api/pokemon";
 
 const ListPokemon = () => {
-  return (
-    <div>
-      List of pokemon
-    </div>
-  );
+    const {isLoading, data} = useListPokemonQuery("listPokemon");
+
+    if (isLoading) {
+        return <div>Loading...</div>
+    }
+
+    return (
+        <div>
+            List of pokemon
+            {JSON.stringify(data)}
+        </div>
+    );
 };
 
 export default ListPokemon;
