@@ -1,0 +1,19 @@
+.header {
+  font-size: 1rem;
+  color: green;
+  margin-bottom: 16px;
+}
+
+.pokemonRows {
+  display: grid;
+  grid-row-gap: 12px;
+}
+
+.pokemonRowsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: green;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
