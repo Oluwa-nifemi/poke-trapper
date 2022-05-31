@@ -23,6 +23,9 @@ export interface PokemonWithDetails extends BasePokemon {
     sprites: {
         front_default: string;
     };
+    height: number;
+    weight: number;
+    base_experience: number;
 }
 
 export interface CaughtPokemon {
