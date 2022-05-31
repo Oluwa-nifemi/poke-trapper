@@ -1,42 +1,43 @@
 import React, {useCallback, useEffect} from 'react';
-import {Link, Outlet} from "react-router-dom";
+import {Link, Outlet, useLocation} from "react-router-dom";
 import {CaughtPokemon} from "types/pokemon";
 import localforage from "localforage";
 import {PokemonStats, setInitialState} from "../../redux/my-pokemon.slice";
 import {useAppDispatch} from "../../redux/hooks";
+import {ReactComponent as Logo} from "../../assets/logo.svg";
+import styles from "./index.module.css"
 
 const Layout: React.FC = () => {
+    const location = useLocation();
     const dispatch = useAppDispatch();
 
     const extractInitialState = useCallback(async () => {
         const caughtPokemon: CaughtPokemon[] = await localforage.getItem("caughtPokemon") || [];
         const stats: PokemonStats = await localforage.getItem("stats") || {};
         dispatch(setInitialState({caughtPokemon, stats}));
-    },[dispatch])
+    }, [dispatch])
 
     useEffect(() => {
         extractInitialState()
     }, [extractInitialState])
 
+    const renderLink = () => {
+        if (location.pathname === "/my-pokemon") {
+            return <Link to="/" className={styles.navLink}>Home</Link>
+        }
+
+        return <Link to="/my-pokemon" className={styles.navLink}>My Pokemon</Link>
+    }
+
     return (
         <>
-            <nav>
-                <h3>
-                    Poke trapper
-                </h3>
-                <ul>
-                    <li>
-                        <Link to="/">List</Link>
-                    </li>
-                    <li>
-                        <Link to="/2">Deets</Link>
-                    </li>
-                    <li>
-                        <Link to="/my-pokemon">My precious </Link>
-                    </li>
-                </ul>
+            <nav className={styles.nav}>
+                <Link to="/">
+                    <Logo className={styles.navLogo}/>
+                </Link>
+                {renderLink()}
             </nav>
-            <main>
+            <main className={styles.main}>
                 <Outlet/>
             </main>
         </>

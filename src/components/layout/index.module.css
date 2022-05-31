@@ -1,0 +1,43 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 600px) {
+  .nav {
+    padding: 9px 32px;
+    margin-bottom: 32px;
+  }
+}
+
+.navLogo {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 600px) {
+  .navLogo {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.navLink {
+  font-size: 0.6rem;
+  color: white;
+  text-decoration: none;
+}
+
+@media (min-width: 600px) {
+  .navLink {
+    font-size: 1rem;
+  }
+}
+
+.main {
+  padding: 0 8px;
+}
