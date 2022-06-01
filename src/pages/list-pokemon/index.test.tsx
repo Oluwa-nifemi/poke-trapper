@@ -7,5 +7,9 @@ describe("Test List Pokemon", () => {
         const {container} = render(<ListPokemon/>);
         await waitFor(() => expect(screen.queryByText("Loading...")).toBeNull());
         expect(container).toMatchSnapshot();
+
+        const testPokemon = "bulbasaur"
+        const element = screen.getByText(testPokemon);
+        expect(element).toHaveAttribute("href", `/${testPokemon}`);
     });
 });
