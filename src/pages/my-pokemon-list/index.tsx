@@ -7,12 +7,17 @@ import styles from "./index.module.css"
 import Popup from "components/popup";
 import Typewriter from "components/typewriter/typewriter";
 import {Link} from "react-router-dom";
+import DashedButton from "components/dashed-button";
 
 const MyPokemonList = () => {
     const myPokemon = useAppSelector(getCaughtPokemon);
     const dispatch = useAppDispatch();
 
     const [deletedPokemon, setDeletedPokemon] = React.useState("");
+
+    const resetDeletedPokemon = () => {
+        setDeletedPokemon("")
+    }
 
     const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -24,7 +29,7 @@ const MyPokemonList = () => {
         setDeletedPokemon(pokemon.nickname);
 
         //Wipe message after 3 seconds but also store the timeout incase we need to reset the timeout if the user releases another pokemon
-        timeoutRef.current = setTimeout(() => setDeletedPokemon(""), 3000);
+        timeoutRef.current = setTimeout(resetDeletedPokemon, 3000);
     }
 
     const renderBody = () => {
@@ -69,6 +74,9 @@ const MyPokemonList = () => {
             {renderBody()}
             <Popup isVisible={!!deletedPokemon}>
                 <Typewriter text={`${deletedPokemon} has been released!`}/>
+                <DashedButton className={styles.popupButton} onClick={resetDeletedPokemon}>
+                    Close
+                </DashedButton>
             </Popup>
         </div>
     );

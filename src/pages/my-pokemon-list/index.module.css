@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.popupButton {
+  margin-top: 8px;
+}
+
 .emptyMessage {
   font-size: 1rem;
   text-align: center;
