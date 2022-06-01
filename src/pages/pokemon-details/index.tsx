@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {useGetPokemonByNameQuery} from "api/pokemon";
 import {useParams} from "react-router-dom";
 import {classNames} from "../../utils/classNames";
@@ -14,13 +14,17 @@ const PokemonDetails = () => {
 
     const [popupState, setPopupState] = useState(MODAL_STATES.IDLE)
 
-    const resetModalState = () => {
+    const {isLoading, data} = useGetPokemonByNameQuery(name as string);
+
+    const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+
+    const resetPopupState = () => {
         setPopupState(MODAL_STATES.IDLE)
     }
 
-    const {isLoading, data} = useGetPokemonByNameQuery(name as string);
-
     const handleClickCatch = () => {
+        clearTimeout(timeoutRef.current);
+
         //Super complex algorithm to detect if the pokemon was successfully caught : )
         const caught = Math.random() > 0.5;
 
@@ -28,12 +32,13 @@ const PokemonDetails = () => {
             if (data) {
                 setPopupState(MODAL_STATES.SUCCESS)
             }
-        }else {
+        } else {
             setPopupState(MODAL_STATES.ERROR)
 
             //Hide modal after 6 seconds
-            setTimeout(() => {
-                resetModalState()
+            //Wipe message after 6 seconds but also store the timeout incase we need to reset the timeout if the user tries to catch again
+            timeoutRef.current = setTimeout(() => {
+                resetPopupState()
             }, 4000)
         }
     }
@@ -48,7 +53,7 @@ const PokemonDetails = () => {
                 {
                     popupState === MODAL_STATES.SUCCESS && (
                         <SuccessPopup
-                            handleClose={resetModalState}
+                            handleClose={resetPopupState}
                             imageUrl={data.sprites.front_default}
                             pokemonName={data.name}
                         />
