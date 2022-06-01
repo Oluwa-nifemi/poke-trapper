@@ -18,15 +18,21 @@
   align-items: center;
 }
 
+.myPokemonListItemLink {
+  text-decoration: none;
+}
+
 .myPokemonListItemNickname {
   font-size: 1rem;
   color: #39413F;
   margin-bottom: 12px;
+  text-align: center;
 }
 
 .myPokemonListItemName {
   font-size: 0.6rem;
   color: green;
+  text-align: center;
 }
 
 .myPokemonListItemRelease {

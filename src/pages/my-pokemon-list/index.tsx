@@ -6,6 +6,7 @@ import PixelatedButton from "components/pixelated-button";
 import styles from "./index.module.css"
 import Popup from "components/popup";
 import Typewriter from "components/typewriter/typewriter";
+import {Link} from "react-router-dom";
 
 const MyPokemonList = () => {
     const myPokemon = useAppSelector(getCaughtPokemon);
@@ -32,12 +33,14 @@ const MyPokemonList = () => {
             <ul className={styles.myPokemonList}>
                 {myPokemon.map((pokemon: CaughtPokemon) => (
                     <li key={pokemon.name} className={styles.myPokemonListItem}>
-                        <h2 className={styles.myPokemonListItemNickname}>
-                            {pokemon.nickname}
-                        </h2>
-                        <h3 className={styles.myPokemonListItemName}>
-                            {pokemon.name}
-                        </h3>
+                        <Link to={`/${pokemon.name}`} className={styles.myPokemonListItemLink}>
+                            <h2 className={styles.myPokemonListItemNickname}>
+                                {pokemon.nickname}
+                            </h2>
+                            <h3 className={styles.myPokemonListItemName}>
+                                {pokemon.name}
+                            </h3>
+                        </Link>
                         <img src={pokemon.sprites.front_default} alt={pokemon.name}/>
                         <PixelatedButton
                             onClick={handleReleasePokemon(pokemon)}
