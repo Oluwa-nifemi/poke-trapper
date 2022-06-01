@@ -8,7 +8,7 @@ interface Props {
 
 const Typewriter: React.FC<Props> = ({text, className}) => {
     return (
-        <p className={className}>
+        <p className={className} title={text}>
             {text.split("").map((char, index) => {
                 return (
                     <span
