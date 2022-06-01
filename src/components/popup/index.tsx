@@ -10,7 +10,7 @@ interface Props {
 
 const Popup: React.FC<Props> = ({children, className = '', isVisible}) => {
     return (
-        <div className={classNames(styles.popup, [isVisible, styles.isVisible], className)}>
+        <div role="alert" className={classNames(styles.popup, [isVisible, styles.isVisible], className)}>
             {isVisible ? children : null}
         </div>
     );
