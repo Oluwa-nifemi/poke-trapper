@@ -3,7 +3,6 @@ import {useGetPokemonByNameQuery} from "api/pokemon";
 import {useParams} from "react-router-dom";
 import {classNames} from "utils/classNames";
 import PixelatedButton from "components/pixelated-button";
-import styles from "./index.module.css"
 import Popup from "components/popup";
 import SuccessPopup from "components/success-popup";
 import {MODAL_STATES} from "types/modal-states";
@@ -11,6 +10,7 @@ import Typewriter from "components/typewriter/typewriter";
 import calculateCatchPokemon from "../../utils/calculateCatchPokemon";
 import {API_ERROR} from "types/error";
 import DashedButton from "components/dashed-button";
+import styles from "./index.module.css"
 
 const PokemonDetails = () => {
     const {name} = useParams();
@@ -47,7 +47,7 @@ const PokemonDetails = () => {
     }
 
     if (isLoading) {
-        return <h1 className={styles.statusMessage}>Loading...</h1>
+        return <h1 className={classNames(styles.statusMessage, "loading-text")}>Loading</h1>
     }
 
     if (isError) {

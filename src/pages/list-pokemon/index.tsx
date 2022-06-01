@@ -4,12 +4,13 @@ import {BasePokemon} from "types/pokemon";
 import PokemonItem from "components/pokemon";
 import styles from "./index.module.css"
 import {API_ERROR} from "types/error";
+import {classNames} from "utils/classNames";
 
 const ListPokemon = () => {
     const {isLoading, data, isError, error} = useListPokemonQuery("listPokemon");
 
     if (isLoading) {
-        return <h1>Loading...</h1>
+        return <h1 className={classNames(styles.statusMessage, "loading-text")}>Loading...</h1>
     }
 
     if (isError) {

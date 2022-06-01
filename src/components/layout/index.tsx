@@ -6,6 +6,7 @@ import {getHasSetInitialState, PokemonStats, setInitialState} from "../../redux/
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import {ReactComponent as Logo} from "assets/logo.svg";
 import styles from "./index.module.css"
+import {classNames} from "utils/classNames";
 
 const Layout: React.FC = () => {
     const location = useLocation();
@@ -34,8 +35,8 @@ const Layout: React.FC = () => {
     const renderMain = () => {
         if (!hasSetInitialState) {
             return (
-                <h3 className={styles.mainExtracting}>
-                    Extracting local database...
+                <h3 className={classNames(styles.mainExtracting, "loading-text")}>
+                    Extracting local database
                 </h3>
             )
         }
