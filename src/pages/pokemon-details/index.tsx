@@ -9,13 +9,14 @@ import SuccessPopup from "components/success-popup";
 import {MODAL_STATES} from "types/modal-states";
 import Typewriter from "components/typewriter/typewriter";
 import calculateCatchPokemon from "../../utils/calculateCatchPokemon";
+import {API_ERROR} from "types/error";
 
 const PokemonDetails = () => {
     const {name} = useParams();
 
     const [popupState, setPopupState] = useState(MODAL_STATES.IDLE)
 
-    const {isLoading, data} = useGetPokemonByNameQuery(name as string);
+    const {isLoading, data, isError, error} = useGetPokemonByNameQuery(name as string);
 
     const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -44,11 +45,15 @@ const PokemonDetails = () => {
         }
     }
 
-    if(isLoading){
-        return <div>Loading...</div>
+    if (isLoading) {
+        return <h1 className={styles.statusMessage}>Loading...</h1>
     }
 
-    if(data) {
+    if (isError) {
+        return <h1 className={styles.statusMessage}>Error: {(error as API_ERROR).data}</h1>
+    }
+
+    if (data) {
         return (
             <>
                 {
