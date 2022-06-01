@@ -8,7 +8,6 @@ interface Props {
     onClick: React.EventHandler<React.MouseEvent>;
 }
 
-
 //Pixelated button inspired by https://codepen.io/YoannM/pen/yyExEO
 const PixelatedButton: React.FC<Props> = ({children, className = '', ...props}) => {
     return (
