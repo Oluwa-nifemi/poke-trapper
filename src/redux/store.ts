@@ -1,12 +1,10 @@
 import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
 import {pokemonApi} from "api/pokemon";
 import myPokemonSlice from "./my-pokemon.slice";
 import {setupListeners} from '@reduxjs/toolkit/query'
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer,
         [pokemonApi.reducerPath]: pokemonApi.reducer,
         myPokemon: myPokemonSlice.reducer
     },
