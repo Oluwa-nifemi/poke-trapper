@@ -46,7 +46,7 @@ const MyPokemonList = () => {
         return (
             <ul className={styles.myPokemonList}>
                 {myPokemon.map((pokemon: CaughtPokemon) => (
-                    <li key={pokemon.name} className={styles.myPokemonListItem}>
+                    <li key={pokemon.id} className={styles.myPokemonListItem}>
                         <Link to={`/${pokemon.name}`} className={styles.myPokemonListItemLink}>
                             <h2 className={styles.myPokemonListItemNickname}>
                                 {pokemon.nickname}

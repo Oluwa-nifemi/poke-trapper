@@ -47,5 +47,8 @@ describe("My Pokemon List", () => {
 
         expect(container).toMatchSnapshot()
         expect(screen.getByTitle(`${testPokemonNickname} has been released!`)).toBeInTheDocument()
+
+        await localforage.removeItem("caughtPokemon")
+        await localforage.removeItem("stats")
     })
 })
