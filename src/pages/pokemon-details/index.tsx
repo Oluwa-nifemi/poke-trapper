@@ -1,17 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useGetPokemonByNameQuery} from "api/pokemon";
 import {useParams} from "react-router-dom";
-import {useAppDispatch} from "../../redux/hooks";
-import {catchPokemon} from "../../redux/my-pokemon.slice";
-import {nanoid} from "nanoid";
 import {classNames} from "../../utils/classNames";
 import PixelatedButton from "components/pixelated-button";
 import styles from "./index.module.css"
+import Popup from "components/popup";
+import SuccessPopup from "components/success-popup";
+import {MODAL_STATES} from "types/modal-states";
+import Typewriter from "components/typewriter/typewriter";
 
 const PokemonDetails = () => {
     const {name} = useParams();
 
-    const dispatch = useAppDispatch();
+    const [popupState, setPopupState] = useState(MODAL_STATES.IDLE)
+
+    const resetModalState = () => {
+        setPopupState(MODAL_STATES.IDLE)
+    }
 
     const {isLoading, data} = useGetPokemonByNameQuery(name as string);
 
@@ -19,22 +24,17 @@ const PokemonDetails = () => {
         //Super complex algorithm to detect if the pokemon was successfully caught : )
         const caught = Math.random() > 0.5;
 
-        if(caught){
-            const nickname = prompt("Enter your nickname") || "";
-
-            if(data){
-                dispatch(catchPokemon({
-                    id: nanoid(),
-                    name: data.name,
-                    sprites: {
-                        front_default: data.sprites.front_default
-                    },
-                    nickname
-                }))
-                alert(`${name} was successfully caught!`);
+        if (caught) {
+            if (data) {
+                setPopupState(MODAL_STATES.SUCCESS)
             }
-        }else{
-            alert(`${name} was not caught!`);
+        }else {
+            setPopupState(MODAL_STATES.ERROR)
+
+            //Hide modal after 6 seconds
+            setTimeout(() => {
+                resetModalState()
+            }, 4000)
         }
     }
 
@@ -45,6 +45,18 @@ const PokemonDetails = () => {
     if(data) {
         return (
             <>
+                {
+                    popupState === MODAL_STATES.SUCCESS && (
+                        <SuccessPopup
+                            handleClose={resetModalState}
+                            imageUrl={data.sprites.front_default}
+                            pokemonName={data.name}
+                        />
+                    )
+                }
+                <Popup isVisible={popupState === MODAL_STATES.ERROR}>
+                    <Typewriter text={`${name} was not caught : (`}/>
+                </Popup>
                 <h1 className={styles.pokemonName}>
                     {data.name}
                 </h1>
