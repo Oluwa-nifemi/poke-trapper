@@ -1,7 +1,6 @@
-import {render, screen} from "tests/utils";
+import {awaitLoading, render, screen} from "tests/utils";
 import App from "../../App";
 import localforage from "localforage";
-import {waitFor} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 describe("My Pokemon List", () => {
@@ -9,8 +8,10 @@ describe("My Pokemon List", () => {
         window.history.pushState({}, "", "/my-pokemon");
     })
 
-    it("Renders empty message", () => {
+    it("Renders empty message", async () => {
         render(<App/>);
+
+        await awaitLoading();
 
         expect(screen.getByText("You have no saved pokemon yet.")).toBeInTheDocument();
     })
@@ -36,9 +37,7 @@ describe("My Pokemon List", () => {
 
         const {container} = render(<App/>);
 
-        await waitFor(() => {
-            expect(screen.queryByText("Extracting local database...")).toBeNull();
-        })
+        await awaitLoading();
 
         expect(container).toMatchSnapshot()
 

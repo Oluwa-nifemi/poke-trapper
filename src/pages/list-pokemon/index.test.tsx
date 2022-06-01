@@ -5,7 +5,9 @@ import {waitFor} from "@testing-library/react";
 describe("Test List Pokemon", () => {
     it("should render correctly", async () => {
         const {container} = render(<ListPokemon/>);
-        await waitFor(() => expect(screen.queryByText("Loading...")).toBeNull());
+
+        await waitFor(() => expect(screen.queryByText("Loading")).toBeNull());
+
         expect(container).toMatchSnapshot();
 
         const testPokemon = "bulbasaur"

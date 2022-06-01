@@ -310,6 +310,11 @@ exports[`My Pokemon List Renders list of pokemon 2`] = `
             !
           </span>
         </p>
+        <button
+          class="button popupButton"
+        >
+          Close
+        </button>
       </div>
     </div>
   </main>

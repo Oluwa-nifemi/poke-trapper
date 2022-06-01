@@ -10,7 +10,7 @@ const ListPokemon = () => {
     const {isLoading, data, isError, error} = useListPokemonQuery("listPokemon");
 
     if (isLoading) {
-        return <h1 className={classNames(styles.statusMessage, "loading-text")}>Loading...</h1>
+        return <h1 className={classNames(styles.statusMessage, "loading-text")}>Loading</h1>
     }
 
     if (isError) {
