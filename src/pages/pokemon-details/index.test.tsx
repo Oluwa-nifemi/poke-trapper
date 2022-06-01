@@ -1,4 +1,4 @@
-import {awaitLoading, render, screen} from "tests/utils";
+import {awaitExtracting, render, screen} from "tests/utils";
 import App from "../../App";
 import {waitFor} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -18,7 +18,7 @@ describe("Pokemon Details Test", () => {
 
         const {container} = render(<App/>);
 
-        await awaitLoading()
+        await awaitExtracting()
 
         await waitFor(() => expect(screen.queryByText("Loading")).toBeNull());
 

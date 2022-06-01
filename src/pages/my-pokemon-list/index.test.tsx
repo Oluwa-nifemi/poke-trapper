@@ -1,4 +1,4 @@
-import {awaitLoading, render, screen} from "tests/utils";
+import {awaitExtracting, render, screen} from "tests/utils";
 import App from "../../App";
 import localforage from "localforage";
 import userEvent from "@testing-library/user-event";
@@ -11,7 +11,7 @@ describe("My Pokemon List", () => {
     it("Renders empty message", async () => {
         render(<App/>);
 
-        await awaitLoading();
+        await awaitExtracting();
 
         expect(screen.getByText("You have no saved pokemon yet.")).toBeInTheDocument();
     })
@@ -37,7 +37,7 @@ describe("My Pokemon List", () => {
 
         const {container} = render(<App/>);
 
-        await awaitLoading();
+        await awaitExtracting();
 
         expect(container).toMatchSnapshot()
 

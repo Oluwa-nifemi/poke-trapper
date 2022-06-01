@@ -29,9 +29,9 @@ const render = (ui, options) => {
   return rtlRender(ui, {wrapper: Wrapper, ...options})
 }
 
-const awaitLoading = async () => {
+const awaitExtracting = async () => {
   await waitFor(() => expect(screen.queryByText("Extracting local database")).toBeNull());
 }
 
 export * from "@testing-library/react"
-export {render, awaitLoading}
+export {render, awaitExtracting}
