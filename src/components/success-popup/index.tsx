@@ -5,6 +5,7 @@ import Popup from "components/popup";
 import {useAppDispatch} from "../../redux/hooks";
 import {catchPokemon} from "../../redux/my-pokemon.slice";
 import {nanoid} from "nanoid";
+import DashedButton from "components/dashed-button";
 
 interface Props {
     pokemonName: string;
@@ -44,9 +45,9 @@ const SuccessPopup: React.FC<Props> = ({pokemonName, imageUrl, handleClose}) => 
             return (
                 <>
                     <Typewriter text={`${nickname} was saved!`}/>
-                    <button className={styles.successPopupButton} onClick={handleClose} type="button">
+                    <DashedButton onClick={handleClose}>
                         Close
-                    </button>
+                    </DashedButton>
                 </>
             )
         }
@@ -69,16 +70,18 @@ const SuccessPopup: React.FC<Props> = ({pokemonName, imageUrl, handleClose}) => 
                         onChange={handleInputChange}
                         value={nickname}
                     />
-                    <button
-                        className={styles.successPopupButton}
+                    <DashedButton
                         type="submit"
                         disabled={nickname.length === 0}
                     >
                         Save
-                    </button>
-                    <button className={styles.successPopupButton} onClick={handleClose} type="button">
+                    </DashedButton>
+                    <DashedButton
+                        onClick={handleClose}
+                        type="button"
+                    >
                         Close
-                    </button>
+                    </DashedButton>
                 </form>
             </>
         )
