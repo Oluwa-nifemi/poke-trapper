@@ -33,5 +33,10 @@ const awaitExtracting = async () => {
   await waitFor(() => expect(screen.queryByText("Extracting local database")).toBeNull());
 }
 
+const awaitExtractingAndLoading = async () => {
+  await waitFor(() => expect(screen.queryByText("Extracting local database")).toBeNull());
+  await waitFor(() => expect(screen.queryByText("Loading")).toBeNull());
+}
+
 export * from "@testing-library/react"
-export {render, awaitExtracting}
+export {render, awaitExtracting, awaitExtractingAndLoading}

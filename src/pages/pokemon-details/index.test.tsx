@@ -1,6 +1,5 @@
-import {awaitExtracting, render, screen} from "tests/utils";
+import {awaitExtractingAndLoading, render, screen} from "tests/utils";
 import App from "../../App";
-import {waitFor} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import calculateCatchPokemon from "utils/calculateCatchPokemon";
 
@@ -18,9 +17,7 @@ describe("Pokemon Details Test", () => {
 
         const {container} = render(<App/>);
 
-        await awaitExtracting()
-
-        await waitFor(() => expect(screen.queryByText("Loading")).toBeNull());
+        await awaitExtractingAndLoading();
 
         expect(container).toMatchSnapshot();
 
