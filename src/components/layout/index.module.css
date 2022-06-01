@@ -41,3 +41,9 @@
 .main {
   padding: 0 8px;
 }
+
+.mainExtracting {
+  font-size: 1rem;
+  color: green;
+  text-align: center;
+}

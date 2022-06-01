@@ -2,14 +2,16 @@ import React, {useCallback, useEffect} from 'react';
 import {Link, Outlet, useLocation} from "react-router-dom";
 import {CaughtPokemon} from "types/pokemon";
 import localforage from "localforage";
-import {PokemonStats, setInitialState} from "../../redux/my-pokemon.slice";
-import {useAppDispatch} from "../../redux/hooks";
+import {getHasSetInitialState, PokemonStats, setInitialState} from "../../redux/my-pokemon.slice";
+import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import {ReactComponent as Logo} from "assets/logo.svg";
 import styles from "./index.module.css"
 
 const Layout: React.FC = () => {
     const location = useLocation();
     const dispatch = useAppDispatch();
+
+    const hasSetInitialState = useAppSelector(getHasSetInitialState);
 
     const extractInitialState = useCallback(async () => {
         const caughtPokemon: CaughtPokemon[] = await localforage.getItem("caughtPokemon") || [];
@@ -29,6 +31,18 @@ const Layout: React.FC = () => {
         return <Link to="/my-pokemon" className={styles.navLink}>My Pokemon</Link>
     }
 
+    const renderMain = () => {
+        if (!hasSetInitialState) {
+            return (
+                <h3 className={styles.mainExtracting}>
+                    Extracting local database...
+                </h3>
+            )
+        }
+
+        return <Outlet/>
+    }
+
     return (
         <>
             <nav className={styles.nav}>
@@ -38,7 +52,7 @@ const Layout: React.FC = () => {
                 {renderLink()}
             </nav>
             <main className={styles.main}>
-                <Outlet/>
+                {renderMain()}
             </main>
         </>
     );
