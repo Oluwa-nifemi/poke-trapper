@@ -1,0 +1,21 @@
+.popup {
+  border: 3px dashed #39413F;
+  border-radius: 5px;
+  max-width: 400px;
+  width: 86%;
+  position: fixed;
+  left: 50%;
+  transform: translateY(10px) translateX(-50%);
+  bottom: 20px;
+  padding: 12px;
+  z-index: 10;
+  background: white;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.popup.isVisible {
+  pointer-events: auto;
+  transform: translateY(0px) translateX(-50%);
+  opacity: 1;
+}

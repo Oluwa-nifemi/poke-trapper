@@ -1,0 +1,15 @@
+.letter {
+  display: inline-block;
+  animation: fadeIn forwards;
+  opacity: 0;
+  animation-duration: 0.1s;
+  color: #39413F;
+  white-space: pre;
+  font-size: 0.7rem;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
