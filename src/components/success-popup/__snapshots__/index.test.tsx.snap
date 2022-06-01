@@ -148,14 +148,14 @@ exports[`Success Popup Renders and allows submit 1`] = `
         value=""
       />
       <button
-        class="successPopupButton"
+        class="button"
         disabled=""
         type="submit"
       >
         Save
       </button>
       <button
-        class="successPopupButton"
+        class="button"
         type="button"
       >
         Close
@@ -320,8 +320,7 @@ exports[`Success Popup Renders and allows submit 2`] = `
       </span>
     </p>
     <button
-      class="successPopupButton"
-      type="button"
+      class="button"
     >
       Close
     </button>
