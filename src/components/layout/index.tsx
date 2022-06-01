@@ -4,7 +4,7 @@ import {CaughtPokemon} from "types/pokemon";
 import localforage from "localforage";
 import {PokemonStats, setInitialState} from "../../redux/my-pokemon.slice";
 import {useAppDispatch} from "../../redux/hooks";
-import {ReactComponent as Logo} from "../../assets/logo.svg";
+import {ReactComponent as Logo} from "assets/logo.svg";
 import styles from "./index.module.css"
 
 const Layout: React.FC = () => {
