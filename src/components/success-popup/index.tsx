@@ -61,9 +61,19 @@ const SuccessPopup: React.FC<Props> = ({pokemonName, imageUrl, handleClose}) => 
                         animationDelay: `${(0.06 * typewriterText.length) + 0.1}s`
                     }}
                 >
-                    <input type="text" placeholder="Nickname" className={styles.successPopupInput}
-                           onChange={handleInputChange} value={nickname}/>
-                    <button className={styles.successPopupButton} type="submit">
+                    <input
+                        role="input"
+                        type="text"
+                        placeholder="Nickname"
+                        className={styles.successPopupInput}
+                        onChange={handleInputChange}
+                        value={nickname}
+                    />
+                    <button
+                        className={styles.successPopupButton}
+                        type="submit"
+                        disabled={nickname.length === 0}
+                    >
                         Save
                     </button>
                     <button className={styles.successPopupButton} onClick={handleClose} type="button">

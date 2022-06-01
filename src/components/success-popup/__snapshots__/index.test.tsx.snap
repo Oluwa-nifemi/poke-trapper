@@ -1,0 +1,330 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Success Popup Renders and allows submit 1`] = `
+<div>
+  <div
+    class="popup isVisible successPopup"
+    role="alert"
+  >
+    <p
+      title="bulbasaur was caught!"
+    >
+      <span
+        class="letter"
+        style="animation-delay: 0s;"
+      >
+        b
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.06s;"
+      >
+        u
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.12s;"
+      >
+        l
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.18s;"
+      >
+        b
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.24s;"
+      >
+        a
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.3s;"
+      >
+        s
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.36s;"
+      >
+        a
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.42s;"
+      >
+        u
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.48s;"
+      >
+        r
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.54s;"
+      >
+         
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.6s;"
+      >
+        w
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.6599999999999999s;"
+      >
+        a
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.72s;"
+      >
+        s
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.78s;"
+      >
+         
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.84s;"
+      >
+        c
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.8999999999999999s;"
+      >
+        a
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.96s;"
+      >
+        u
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 1.02s;"
+      >
+        g
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 1.08s;"
+      >
+        h
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 1.14s;"
+      >
+        t
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 1.2s;"
+      >
+        !
+      </span>
+    </p>
+    <form
+      class="successPopupForm"
+      style="animation-delay: 1.36s;"
+    >
+      <input
+        class="successPopupInput"
+        placeholder="Nickname"
+        role="input"
+        type="text"
+        value=""
+      />
+      <button
+        class="successPopupButton"
+        disabled=""
+        type="submit"
+      >
+        Save
+      </button>
+      <button
+        class="successPopupButton"
+        type="button"
+      >
+        Close
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Success Popup Renders and allows submit 2`] = `
+<div>
+  <div
+    class="popup isVisible successPopup"
+    role="alert"
+  >
+    <p
+      title="Test Nickname was saved!"
+    >
+      <span
+        class="letter"
+        style="animation-delay: 0s;"
+      >
+        T
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.06s;"
+      >
+        e
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.12s;"
+      >
+        s
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.18s;"
+      >
+        t
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.24s;"
+      >
+         
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.3s;"
+      >
+        N
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.36s;"
+      >
+        i
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.42s;"
+      >
+        c
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.48s;"
+      >
+        k
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.54s;"
+      >
+        n
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.6s;"
+      >
+        a
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.6599999999999999s;"
+      >
+        m
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.72s;"
+      >
+        e
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.78s;"
+      >
+         
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.84s;"
+      >
+        w
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.8999999999999999s;"
+      >
+        a
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 0.96s;"
+      >
+        s
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 1.02s;"
+      >
+         
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 1.08s;"
+      >
+        s
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 1.14s;"
+      >
+        a
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 1.2s;"
+      >
+        v
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 1.26s;"
+      >
+        e
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 1.3199999999999998s;"
+      >
+        d
+      </span>
+      <span
+        class="letter"
+        style="animation-delay: 1.38s;"
+      >
+        !
+      </span>
+    </p>
+    <button
+      class="successPopupButton"
+      type="button"
+    >
+      Close
+    </button>
+  </div>
+</div>
+`;
