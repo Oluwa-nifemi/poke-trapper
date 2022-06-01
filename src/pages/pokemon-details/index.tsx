@@ -4,8 +4,9 @@ import {useParams} from "react-router-dom";
 import {useAppDispatch} from "../../redux/hooks";
 import {catchPokemon} from "../../redux/my-pokemon.slice";
 import {nanoid} from "nanoid";
-import styles from "./index.module.css"
 import {classNames} from "../../utils/classNames";
+import PixelatedButton from "components/pixelated-button";
+import styles from "./index.module.css"
 
 const PokemonDetails = () => {
     const {name} = useParams();
@@ -47,10 +48,10 @@ const PokemonDetails = () => {
                 <h1 className={styles.pokemonName}>
                     {data.name}
                 </h1>
-                <img className={styles.pokemonImage} src={data.sprites.front_default} alt=""/>
-                <button onClick={handleClickCatch}>
-                    Catch
-                </button>
+                <img className={styles.pokemonImage} src={data.sprites.front_default} alt={data.name}/>
+                <PixelatedButton className={styles.pokemonCatchButton} onClick={handleClickCatch}>
+                    CATCH
+                </PixelatedButton>
                 <div className={styles.statsGrid}>
                     <article className={classNames(styles.statsGridItem, styles.statsGridItemBorderRight)}>
                         <h2 className={styles.statsGridItemName}>

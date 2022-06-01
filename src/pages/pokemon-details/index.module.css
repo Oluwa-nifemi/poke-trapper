@@ -5,7 +5,12 @@
 }
 
 .pokemonImage {
-  margin: 0 auto 16px;
+  margin: 0 auto;
+  display: block;
+}
+
+.pokemonCatchButton {
+  margin: 0 auto 32px;
   display: block;
 }
 
