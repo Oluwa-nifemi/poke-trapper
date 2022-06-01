@@ -47,7 +47,7 @@ const myPokemonSlice = createSlice({
         releasePokemon: (state, action: PayloadAction<{ pokemonId: string, pokemonName: string }>) => {
             const {pokemonId, pokemonName} = action.payload;
 
-            state.stats[pokemonName] -= 1;
+            state.stats[pokemonName] = Math.max(state.stats[pokemonName] - 1, 0);
 
             state.caughtPokemon = state.caughtPokemon.filter(pokemon => pokemon.id !== pokemonId);
 
