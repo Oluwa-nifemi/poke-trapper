@@ -1,0 +1,34 @@
+.header {
+  font-size: 1.2rem;
+  color: green;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.myPokemonList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  list-style-type: none;
+}
+
+.myPokemonListItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.myPokemonListItemNickname {
+  font-size: 1rem;
+  color: #39413F;
+  margin-bottom: 12px;
+}
+
+.myPokemonListItemName {
+  font-size: 0.6rem;
+  color: green;
+}
+
+.myPokemonListItemRelease {
+  font-size: 0.4rem;
+}

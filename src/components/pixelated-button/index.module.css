@@ -1,12 +1,12 @@
 
 .pixelatedButton {
-  font-size: 25px;
   height: auto;
 
   position: relative;
   display: inline-block;
   vertical-align: top;
   text-transform: uppercase;
+  font-size: 1rem;
 
   cursor: pointer;
 
@@ -45,7 +45,6 @@
   padding: 10px 20px;
 
   color: black;
-  font-size: 1rem;
   background: white;
   background: linear-gradient(135deg, transparent 10px, black 0) top left,
   linear-gradient(225deg, transparent 10px, black 0) top right,
