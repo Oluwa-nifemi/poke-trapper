@@ -9,7 +9,7 @@ describe("Success Popup", () => {
     it("Renders and allows submit", async () => {
         const user = userEvent.setup()
 
-        const {container, debug} = render(
+        const {container} = render(
             <SuccessPopup
                 pokemonName="bulbasaur"
                 handleClose={mockCloseFunction}
