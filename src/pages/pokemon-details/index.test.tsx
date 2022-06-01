@@ -28,7 +28,7 @@ describe("Pokemon Details Test", () => {
 
         expect(mockCalculateCatchPokemon).toHaveBeenCalledTimes(1)
 
-        expect(screen.getByTitle("bulbasaur was not caught : (")).toBeInTheDocument()
+        expect(screen.getByTitle("bulbasaur was not caught")).toBeInTheDocument()
 
         await user.click(screen.getByText(/catch/i))
 

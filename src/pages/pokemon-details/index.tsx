@@ -10,6 +10,7 @@ import {MODAL_STATES} from "types/modal-states";
 import Typewriter from "components/typewriter/typewriter";
 import calculateCatchPokemon from "../../utils/calculateCatchPokemon";
 import {API_ERROR} from "types/error";
+import DashedButton from "components/dashed-button";
 
 const PokemonDetails = () => {
     const {name} = useParams();
@@ -66,7 +67,10 @@ const PokemonDetails = () => {
                     )
                 }
                 <Popup isVisible={popupState === MODAL_STATES.ERROR}>
-                    <Typewriter text={`${name} was not caught : (`}/>
+                    <Typewriter text={`${name} was not caught`}/>
+                    <DashedButton className={styles.popupButton} onClick={resetPopupState}>
+                        Close
+                    </DashedButton>
                 </Popup>
                 <h1 className={styles.pokemonName}>
                     {data.name}
