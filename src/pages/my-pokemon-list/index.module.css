@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+.emptyMessage {
+  font-size: 1rem;
+  text-align: center;
+  color: #39413F;
+  line-height: 1.8;
+}
+
 .myPokemonList {
   display: flex;
   flex-direction: column;

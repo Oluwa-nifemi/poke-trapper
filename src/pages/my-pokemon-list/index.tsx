@@ -27,9 +27,18 @@ const MyPokemonList = () => {
         timeoutRef.current = setTimeout(() => setDeletedPokemon(""), 3000);
     }
 
-    return (
-        <div>
-            <h1 className={styles.header}>My Pokemon</h1>
+    const renderBody = () => {
+        if (myPokemon.length === 0) {
+            return (
+                <h2 className={styles.emptyMessage}>
+                    <span>You have no saved pokemon yet.</span>
+                    <br/>
+                    <span>Go Catch Some!</span>
+                </h2>
+            )
+        }
+
+        return (
             <ul className={styles.myPokemonList}>
                 {myPokemon.map((pokemon: CaughtPokemon) => (
                     <li key={pokemon.name} className={styles.myPokemonListItem}>
@@ -51,6 +60,13 @@ const MyPokemonList = () => {
                     </li>
                 ))}
             </ul>
+        )
+    }
+
+    return (
+        <div>
+            <h1 className={styles.header}>My Pokemon</h1>
+            {renderBody()}
             <Popup isVisible={!!deletedPokemon}>
                 <Typewriter text={`${deletedPokemon} has been released!`}/>
             </Popup>
