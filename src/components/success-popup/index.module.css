@@ -28,6 +28,12 @@
   height: 20px;
 }
 
+.successPopupInputLabel {
+  font-size: 0.6rem;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
 .successPopupButton {
   font-size: 0.7rem;
   color: black;

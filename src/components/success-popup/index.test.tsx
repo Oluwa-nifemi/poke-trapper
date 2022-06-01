@@ -27,7 +27,7 @@ describe("Success Popup", () => {
 
         const testNickname = "Test Nickname";
 
-        await user.type(screen.getByRole("input"), testNickname)
+        await user.type(screen.getByLabelText("Enter Nickname"), testNickname)
 
         expect(screen.getByText("Save")).not.toBeDisabled()
 

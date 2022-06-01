@@ -140,13 +140,21 @@ exports[`Success Popup Renders and allows submit 1`] = `
       class="successPopupForm"
       style="animation-delay: 1.36s;"
     >
-      <input
-        class="successPopupInput"
-        placeholder="Nickname"
-        role="input"
-        type="text"
-        value=""
-      />
+      <label
+        for="nickname"
+      >
+        <span
+          class="successPopupInputLabel"
+        >
+          Enter Nickname
+        </span>
+        <input
+          class="successPopupInput"
+          id="nickname"
+          type="text"
+          value=""
+        />
+      </label>
       <button
         class="button"
         disabled=""

@@ -67,7 +67,7 @@ describe("Main App Tests", () => {
         //Fill out success form
         const testNickname = "Test Nickname";
 
-        await user.type(screen.getByRole("input"), testNickname)
+        await user.type(screen.getByLabelText("Enter Nickname"), testNickname)
 
         await user.click(screen.getByText("Save"))
 
