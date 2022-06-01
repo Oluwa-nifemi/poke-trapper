@@ -1,5 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Main App Tests Can load main app and view details and add to personal pokemon 1`] = `
+<div>
+  <nav
+    class="nav"
+  >
+    <a
+      href="/"
+    >
+      <svg
+        class="navLogo"
+      >
+        logo.svg
+      </svg>
+    </a>
+    <a
+      class="navLink"
+      href="/my-pokemon"
+    >
+      My Pokemon
+    </a>
+  </nav>
+  <main
+    class="main"
+  >
+    <h1
+      class="header"
+    >
+      List of pokemon
+    </h1>
+    <section
+      class="pokemonRows"
+    >
+      <article
+        class="pokemonRowsHeader"
+      >
+        <span>
+          Name
+        </span>
+        <span>
+          Owned
+        </span>
+      </article>
+      <article
+        class="pokemon"
+      >
+        <a
+          class="pokemonName"
+          href="/bulbasaur"
+        >
+          bulbasaur
+        </a>
+        <span>
+          0
+        </span>
+      </article>
+      <article
+        class="pokemon"
+      >
+        <a
+          class="pokemonName"
+          href="/ivysaur"
+        >
+          ivysaur
+        </a>
+        <span>
+          0
+        </span>
+      </article>
+      <article
+        class="pokemon"
+      >
+        <a
+          class="pokemonName"
+          href="/venusaur"
+        >
+          venusaur
+        </a>
+        <span>
+          0
+        </span>
+      </article>
+    </section>
+  </main>
+</div>
+`;
+
 exports[`Main App Tests Renders correct stats from localforage 1`] = `
 <div>
   <nav
