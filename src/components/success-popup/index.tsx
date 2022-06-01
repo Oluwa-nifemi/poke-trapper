@@ -25,8 +25,6 @@ const SuccessPopup: React.FC<Props> = ({pokemonName, imageUrl, handleClose}) => 
     const handleFormSubmit: React.FormEventHandler = (e) => {
         e.preventDefault();
 
-        setNickname("");
-
         dispatch(catchPokemon({
             id: nanoid(),
             name: pokemonName,
@@ -45,7 +43,7 @@ const SuccessPopup: React.FC<Props> = ({pokemonName, imageUrl, handleClose}) => 
         if (hasSaved) {
             return (
                 <>
-                    <Typewriter text={`${pokemonName} was saved!`}/>
+                    <Typewriter text={`${nickname} was saved!`}/>
                     <button className={styles.successPopupButton} onClick={handleClose} type="button">
                         Close
                     </button>
