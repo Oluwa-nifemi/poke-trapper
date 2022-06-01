@@ -3,7 +3,13 @@
  */
 export const classNames = (...args: (string | [boolean, string])[]) => {
     return args.filter(className => {
-        if (Array.isArray(className) && className[0]) {
+        if (Array.isArray(className)) {
+            return className[0];
+        }
+
+        return className;
+    }).map((className) => {
+        if (Array.isArray(className)) {
             return className[1];
         }
 
