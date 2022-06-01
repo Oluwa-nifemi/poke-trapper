@@ -1,13 +1,14 @@
 import React, {useRef, useState} from 'react';
 import {useGetPokemonByNameQuery} from "api/pokemon";
 import {useParams} from "react-router-dom";
-import {classNames} from "../../utils/classNames";
+import {classNames} from "utils/classNames";
 import PixelatedButton from "components/pixelated-button";
 import styles from "./index.module.css"
 import Popup from "components/popup";
 import SuccessPopup from "components/success-popup";
 import {MODAL_STATES} from "types/modal-states";
 import Typewriter from "components/typewriter/typewriter";
+import calculateCatchPokemon from "../../utils/calculateCatchPokemon";
 
 const PokemonDetails = () => {
     const {name} = useParams();
@@ -26,7 +27,7 @@ const PokemonDetails = () => {
         clearTimeout(timeoutRef.current);
 
         //Super complex algorithm to detect if the pokemon was successfully caught : )
-        const caught = Math.random() > 0.5;
+        const caught = calculateCatchPokemon();
 
         if (caught) {
             if (data) {
